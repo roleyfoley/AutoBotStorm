@@ -1,3 +1,4 @@
+# Get the Uptime of a Windows Machine in JSON Format
 function Get-Uptime {
    $ReturnObject = New-OBject Psobject
    $os = Get-WmiObject win32_operatingsystem

@@ -1,0 +1,11 @@
+---
+name: "get_windows_disk_layout"
+description: "Action that returns Windows host's uptime in JSON Format"
+enabled: true
+entry_point: "windows/get_disk_layout.ps1"
+runner_type: "windows-script"
+parameters:
+        password:
+           default: "{{st2kv.system.win_password | decrypt_kv}}"
+        usernanme:
+           default: "{{st2kv.system.win_user }}"
