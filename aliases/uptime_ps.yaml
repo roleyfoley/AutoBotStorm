@@ -6,10 +6,5 @@ formats:
     - "psuptime on {{host}}"
 ack:
     format: "Hold tight while I check the uptime on host *{{execution.parameters.host}}*"
-result:
-    format: |
-            Host: *{{host}}*
-            ---> stdout: {{execution.result[host].stdout}}
-            ---> stderr: {{execution.result[host].stderr}}
 
 
