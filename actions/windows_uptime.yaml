@@ -2,28 +2,11 @@
 name: "get_windows_uptime_json"
 description: "Action that returns Windows host's uptime in JSON Format"
 enabled: true
-runner_type: "windows-cmd"
+entry_point: "windows/get_uptime_JSON.ps1""
+runner_type: "windows-script"
 parameters:
         password:
-           immutable: true
-           default: '"{{st2kv.system.win_password | decrypt_kv}}"'
+           default: "{{st2kv.system.win_password | decrypt_kv}}"
         usernanme:
-           immutable: true
-           default: '"{{st2kv.system.win_user }}"'
-        cmd:
-           immutable: true
-           default: |
-            function Get-Uptime {
-              $ReturnObject = New-OBject Psobject
-              $os = Get-WmiObject win32_operatingsystem
-              $uptime = (Get-Date) - ($os.ConvertToDateTime($os.lastbootuptime))
-              $CurrentTime = Get-Date
-              $REturnObject | Add-Member -MemberType NoteProperty -Name CurrentTime -Value "$($CurrentTime)"
-              $ReturnObject | Add-Member -MemberType NoteProperty -Name OSLastBooTime -Value "$($os.ConvertToDateTime($os.lastbootuptime))"
-              $ReturnObject | ADd-member -MemberType NOteProperty -Name Uptime -Value "Uptime $( $Uptime.Days) days, $($Uptime.Hours) hours, $($Uptime.Minutes) minutes"
-              $ReturnObject = Convertto-Json $ReturnObject
-              return $ReturnObject
-            }
-            Clear-Host
-            Get-Uptime
+           default: "{{st2kv.system.win_user }}"
                  
