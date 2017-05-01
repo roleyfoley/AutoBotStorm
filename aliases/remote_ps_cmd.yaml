@@ -5,6 +5,6 @@ description: "Execute a command on a remote host via PowerShell."
 formats:
     - "psrun {{cmd}} on {{host}}"
 ack:
-    format: "Hold tight while I run command: *{{execution.parameters.cmd}}* on hosts *{{execution.parameters.hosts}}*"
+    format: "Hold tight while I run command: *{{execution.parameters.cmd}}* on *{{execution.parameters.host}}*"
 
 
