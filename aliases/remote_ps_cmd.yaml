@@ -1,19 +1,10 @@
 ---
 name: "remote_ps_cmd"
-action_ref: "core.windows_cmd"
+action_ref: "AutoBotStorm.windows_cmd_auth"
 description: "Execute a command on a remote host via PowerShell."
 formats:
     - "psrun {{cmd}} on {{host}}"
 ack:
     format: "Hold tight while I run command: *{{execution.parameters.cmd}}* on hosts *{{execution.parameters.hosts}}*"
-result:
-    format: |
-        Ran command *{{execution.parameters.cmd}}* on *{{ execution.result | length }}* hosts.
 
-        Details are as follows:
-        {% for host in execution.result -%}
-            Host: *{{host}}*
-            ---> stdout: {{execution.result[host].stdout}}
-            ---> stderr: {{execution.result[host].stderr}}
-        {%+ endfor %}
 
