@@ -1,6 +1,6 @@
 ---
 name: "get_windows_uptime"
-action_ref: "AutoBotStorm.get_windows_uptime_jso"
+action_ref: "AutoBotStorm.get_windows_uptime_json"
 description: "Execute a command on a remote host via PowerShell."
 formats:
     - "psuptime on {{host}}"
