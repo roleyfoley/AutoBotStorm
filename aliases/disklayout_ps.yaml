@@ -1,0 +1,8 @@
+---
+name: "get_windows_disklayout"
+action_ref: "AutoBotStorm.get_windows_disk_layout"
+description: "Show the disk layout for a win vm"
+formats:
+    - "psdisk on {{host}}"
+ack:
+    format: "Hold tight while I check the disks on host *{{execution.parameters.host}}*"
